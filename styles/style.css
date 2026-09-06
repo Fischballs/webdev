@@ -1,0 +1,74 @@
+/* ==========================================================
+   styles.css
+   Miguel Gutib — custom brand styles (colors, fonts, frames)
+   Layout/spacing/flex/grid utilities are handled by Tailwind CSS
+   (loaded separately in home.php). This file only holds the
+   brand-specific values Tailwind's default palette doesn't have.
+========================================================== */
+
+:root{
+    --mg-bg:        #1b1b1b;   /* page background */
+    --mg-panel:     #242424;   /* boxed section background */
+    --mg-panel-2:   #202020;   /* alt boxed section background */
+    --mg-line:      rgba(255,255,255,.16); /* thin box borders */
+    --mg-gold:      #c9a97c;   /* headings / primary accent */
+    --mg-gold-soft: #b79a72;   /* body copy on dark */
+    --mg-gold-line: #9c7a4d;   /* stronger gold border / frame */
+    --mg-cream:     #e8e3d0;   /* military banner background */
+    --mg-cream-ink: #2a2a22;   /* text on cream background */
+    --mg-btn:       #efe9db;   /* light pill buttons (Quick View / Cart) */
+}
+
+body{
+    background-color: var(--mg-bg);
+    font-family: 'EB Garamond', serif;
+}
+.font-display{ font-family:'Playfair Display', serif; }
+.font-stamp{ font-family:'Special Elite', monospace; }
+
+.bg-mg-bg{ background-color: var(--mg-bg); }
+.bg-mg-panel{ background-color: var(--mg-panel); }
+.bg-mg-panel-2{ background-color: var(--mg-panel-2); }
+.bg-mg-cream{ background-color: var(--mg-cream); }
+.text-mg-gold{ color: var(--mg-gold); }
+.text-mg-gold-soft{ color: var(--mg-gold-soft); }
+.text-mg-cream-ink{ color: var(--mg-cream-ink); }
+.border-mg-line{ border-color: var(--mg-line); }
+.border-mg-gold{ border-color: var(--mg-gold-line); }
+
+/* Chamfered / cut-corner hero frame (top-left & bottom-right corners) */
+.hero-frame{
+    clip-path: polygon(64px 0, 100% 0, 100% calc(100% - 64px), calc(100% - 64px) 100%, 0 100%, 0 64px);
+    border: 1px solid var(--mg-gold-line);
+}
+
+/* Generic asset placeholder */
+.asset-placeholder{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:.4rem;
+    width:100%;
+    height:100%;
+    background:repeating-linear-gradient(135deg, #3a3a3a, #3a3a3a 10px, #333 10px, #333 20px);
+    border:1px dashed rgba(255,255,255,.35);
+    color:rgba(255,255,255,.55);
+    text-align:center;
+    padding:.75rem;
+    box-sizing:border-box;
+}
+.asset-placeholder__icon{ width:26px; height:26px; opacity:.7; }
+.asset-placeholder__label{
+    font-family:'EB Garamond', serif;
+    font-size:.72rem;
+    line-height:1.15;
+    letter-spacing:.02em;
+    max-width:22ch;
+}
+
+/* scrollbar for the horizontally scrolling product rail */
+.mg-scroll::-webkit-scrollbar{ height:6px; }
+.mg-scroll::-webkit-scrollbar-track{ background:rgba(255,255,255,.08); border-radius:999px; }
+.mg-scroll::-webkit-scrollbar-thumb{ background:var(--mg-gold-line); border-radius:999px; }
+
