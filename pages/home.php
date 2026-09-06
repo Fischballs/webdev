@@ -1,33 +1,8 @@
 <?php
-/**
- * home.php
- * Miguel Gutib — Homepage
- *
- * Structure, hierarchy, boxes and colors follow the MG_web_mockup.pdf design.
- * Layout/spacing uses Tailwind CSS utility classes. Brand colors live in
- * styles/style.css since they aren't part of Tailwind's default palette.
- *
- * ACCOUNT / SESSION STATE
- * -----------------------
- * includes/session.php starts the session and exposes $is_logged_in,
- * $user_id and $account_name. While logged out ("null account"), the
- * navbar shows "Example Account" and every Buy Now / Cart / Account
- * control is routed to signin_signup.php via guarded_href(). Once
- * signin_signup.php sets $_SESSION['account_name'], this page shows
- * that name instead and lets Cart/Buy Now actually add to the cart.
- *
- * PRODUCTS
- * --------
- * Pulled live from the `products` table (see database/schema.sql) instead
- * of being hardcoded, so cart/checkout can reference real product ids.
- * A product with no image_path yet renders via asset_placeholder() —
- * fill in image_path once you have the real photo and it becomes a
- * normal <img> automatically.
- */
 
 require __DIR__ . '/includes/session.php';
-require __DIR__ . '/config/database.php';
-require __DIR__ . '/partials/asset-placeholder.php';
+require __DIR__ . '/../config/database.php';
+require __DIR__ . '/../partials/asset-placeholder.php';
 
 // Best Sellers row shown on the homepage (matches the mockup's active tab).
 $products_stmt = $pdo->query(
@@ -70,7 +45,7 @@ function product_image(array $product, string $ratio, string $classes = ''): voi
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Special+Elite&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles/style.css">
+<link rel="stylesheet" href="../styles/style.css">
 </head>
 <body class="bg-mg-bg">
 

@@ -1,15 +1,4 @@
 <?php
-/**
- * signin_signup.php
- * Miguel Gutib — Log In / Sign Up (real accounts, backed by MySQL)
- *
- * Log In checks the submitted email + password against the users table
- * with password_verify(). Sign Up checks the email isn't already taken,
- * hashes the password with password_hash(), and inserts a new row.
- * Either way, on success we store user_id + account_name in the session
- * and redirect back — home.php then shows that name in the navbar.
- */
-
 require __DIR__ . '/includes/session.php';
 require __DIR__ . '/config/database.php';
 require __DIR__ . '/partials/asset-placeholder.php';
